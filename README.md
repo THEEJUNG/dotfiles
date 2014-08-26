@@ -34,3 +34,8 @@ dot files for my Linux/Windows configuration
 
 Reference:
 - vim-setup: copy from https://github.com/jongman/vim-setup and other web sources
+
+==TODO==
+ - https://github.com/garybernhardt/dotfiles
+ - https://github.com/mathiasbynens/dotfiles
+ - https://github.com/gf3/dotfiles/blob/v1.0.0/bootstrap.sh
