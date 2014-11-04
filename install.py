@@ -4,7 +4,7 @@ import os
 current_dir = os.path.abspath(os.path.dirname(__file__))
 j = lambda *args: os.path.join(current_dir, *args)
 
-jobs = [(j("vim"), "~/.vim"), (j("vimrc"), "~/.vimrc"), (j("gitconfig"), "~/.gitconfig"), (j("gitignore"), "~/.gitignore"), (j("tmuxconf"), "~/.tmuxconf")]
+jobs = [(j("vim"), "~/.vim"), (j("vimrc"), "~/.vimrc"), (j("gitconfig"), "~/.gitconfig"), (j("gitignore"), "~/.gitignore"), (j("tmux.conf"), "~/.tmux.conf")]
 
 for path, target in jobs:
     target = os.path.expanduser(target)
