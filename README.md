@@ -39,3 +39,9 @@ Reference:
  - https://github.com/garybernhardt/dotfiles
  - https://github.com/mathiasbynens/dotfiles
  - https://github.com/gf3/dotfiles/blob/v1.0.0/bootstrap.sh
+
+(3) tmux-setup
+ - bind-key => Ctrl-a (instead of Ctrl-b)
+ - split: h (horizontal) b (vertical)
+ - rename of pane: Ctrl-C
+
