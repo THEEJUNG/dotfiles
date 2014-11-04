@@ -42,6 +42,7 @@ Reference:
 
 (3) tmux-setup
  - bind-key => Ctrl-a (instead of Ctrl-b)
- - split: h (horizontal) b (vertical)
+ - split: Ctrol-- (horizontal) Ctrl-\ (vertical)
  - rename of pane: Ctrl-C
+ - move between tmuxs : Ctrl-> or Ctrl-<
 
