@@ -6,7 +6,8 @@
 *.exe
 *.o
 *.so
- 
+*.pyc
+
 # Temporary files #
 ###################
 *.swp
