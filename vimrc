@@ -1,3 +1,5 @@
+set notimeout
+
 set nocompatible 
 
 " load plugins via Pathogen
