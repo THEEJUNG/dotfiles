@@ -5,9 +5,7 @@ set nocompatible
 " load plugins via Pathogen
 filetype off
 call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
 call pathogen#incubate()
-"call pathogen#runtime_append_all_bundles()
 
 filetype plugin indent on
 
@@ -27,10 +25,10 @@ map n nzz
 
 " tab navigation
 set showtabline=2 " always show tab line
-map <C-t> :tabnew<CR>
-map <tab> :tabnext<CR>
-map <S-tab> :tabprevious<CR>
-map <C-w> :tabclose<CR>
+" map <C-t> :tabnew<CR>
+" map <tab> :tabnext<CR>
+" map <S-tab> :tabprevious<CR>
+" map <C-w> :tabclose<CR>
 " line wraps
 set wrap
 set textwidth=0 

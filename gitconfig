@@ -29,3 +29,5 @@
     prompt = false
 [github]
     user = dykang
+[credential]
+	helper = cache
