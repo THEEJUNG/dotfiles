@@ -48,11 +48,17 @@ dot files for my Linux/Windows configuration
 *  move between windows : Ctrl-a )(
 *  move between panes: hjkl
 
-### Python/Pip install & requirement.txt
+# Python/Pip install & requirement.txt
+## Python (UCS4, shared)
 * ./configure --enable-shared --enable-unicode=ucs4 --prefix=/local/dir/to/install
 * make & make install
-
+## Pip
 * pip install --install-option="--install-purelib=/python/packages" package_name
+##IPython
+* gnureadline, nose, mock, casperjs cython jinja2 matplotlib numpy oct2py pygments pymongo qt rpy2 sphinx zmq
+* iptest
+##Requirements.txt
+* pip install -r requirements.txt
 
 
 
