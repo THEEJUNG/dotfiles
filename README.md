@@ -1,8 +1,8 @@
 dot files for my Linux/Windows configuration
 
-### vim-setup
+# vim-setup
 
-# Normal Mode
+## Normal Mode
 * F2: line number toggle
 * F8: copy/paste toggle
 * Ctrl-T: new tab
@@ -20,10 +20,10 @@ dot files for my Linux/Windows configuration
 * ,s: split with current directory files
 * ,t: new tab with current directory files
 
-# Insert Mode
+## Insert Mode
 * F8: paste mode toggle
 
-# plugin key-binding
+## plugin key-binding
 
 * F4: NerdTree find current file
 * F5: NerdTree close
@@ -32,26 +32,28 @@ dot files for my Linux/Windows configuration
 * \\t: Ctrl-P
 * \\o: bufexplorer
 
-Reference:
-- vim-setup: copy from https://github.com/jongman/vim-setup and other web sources
+## Reference:
+* vim-setup: copy from https://github.com/jongman/vim-setup and other web sources
 
-# TODO
- - https://github.com/garybernhardt/dotfiles
- - https://github.com/mathiasbynens/dotfiles
- - https://github.com/gf3/dotfiles/blob/v1.0.0/bootstrap.sh
+## TODO
+*  https://github.com/garybernhardt/dotfiles
+*  https://github.com/mathiasbynens/dotfiles
+*  https://github.com/gf3/dotfiles/blob/v1.0.0/bootstrap.sh
 
-### tmux-setup
- - bind-key => Ctrl-a (instead of Ctrl-b)
- - split: Ctrl-a - (horizontal) Ctrl-a \ (vertical)
- - rename of pane: Ctrl-a C
- - move between windows : Ctrl-a )(
- - move between panes: hjkl
+
+# tmux-setup
+*  bind-key => Ctrl-a (instead of Ctrl-b)
+*  split: Ctrl-a - (horizontal) Ctrl-a \ (vertical)
+*  rename of pane: Ctrl-a C
+*  move between windows : Ctrl-a )(
+*  move between panes: hjkl
 
 ### Python/Pip install & requirement.txt
-pip install --install-option="--install-purelib=/python/packages" package_name
+* ./configure --enable-shared --enable-unicode=ucs4 --prefix=/local/dir/to/install
+* make & make install
 
-./configure --enable-shared --prefix=/usr/local
-make & make install
+* pip install --install-option="--install-purelib=/python/packages" package_name
+
 
 
 
