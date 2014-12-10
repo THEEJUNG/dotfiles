@@ -47,3 +47,8 @@ Reference:
  - move between windows : Ctrl-a )(
  - move between panes: hjkl
 
+
+pip install --install-option="--install-purelib=/python/packages" package_name
+
+
+
