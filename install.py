@@ -19,3 +19,6 @@ for path, target in jobs:
         print "created", target
 
 os.system("tmux source-file ~/.tmux.conf")
+
+import urllib
+urllib.urlretrieve("https://bootstrap.pypa.io/get-pip.py", filename="get-pip.py")
