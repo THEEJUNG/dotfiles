@@ -59,6 +59,7 @@ dot files for my Linux/Windows configuration
 * iptest
 ##Requirements.txt
 * pip install -r requirements.txt
+* sudo apt-get install libxml2-dev libxslt-dev python-dev
 
 
 
