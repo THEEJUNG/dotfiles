@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ############################################
 # ansi color
@@ -82,3 +83,6 @@ export LANG=ko_KR.UTF-8
 
 
 
+=======
+export /Windowsexport
+>>>>>>> fea4824327444db7982983138f8daaf436f8ddec
