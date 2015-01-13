@@ -60,6 +60,7 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 # append to the history file, don't overwrite it
 shopt -s histappend
+shopt -s checkwinsize
 
 alias a='clear; ls;'
 alias server='python -m SimpleHTTPServer 5000'
@@ -68,16 +69,27 @@ alias tmux='TERM=screen-256color-bce tmux'
 alias src='source ~/.bashrc'
 alias ls='ls -al --color=auto'
 alias ll="ls -trh"
-
+alias la='ls -A'
+alias l='ls -CF'
+ 
 alias tm='tmux a -t deep'
 export DISPLAY='localhost:0'
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"
 
+export SVN_EDITOR=vim
+export GIT_EDITOR=vim
 
-export LC_ALL=ko_KR.UTF-8
-export LANG=ko_KR.UTF-8
+export TMOUT=0
+
+git config --global user.name "Dongyeop Kang"
+git config --global user.email "dykang85@gmail.com"
+git config --global credential.helper cache
+
+
+#export LC_ALL=ko_KR.UTF-8
+#export LANG=ko_KR.UTF-8
 
 
 
