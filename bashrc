@@ -49,23 +49,45 @@ alias ff='find . -name $*'
 HISTSIZE=1000
 HISTFILESIZE=2000
 # append to the history file, don't overwrite it
+<<<<<<< HEAD
 #shopt -s histappend
+=======
+shopt -s histappend
+shopt -s checkwinsize
+>>>>>>> 328bb3c615add20b9baa0018ca0e9c4be33dc107
 
 alias server='python -m SimpleHTTPServer 5000'
 alias tmux='TERM=screen-256color-bce tmux'
 alias src='source ~/.bashrc'
+<<<<<<< HEAD
 alias ls='ls -a --color=auto'
 alias ll="ls -ltrh"
 
+=======
+alias ls='ls -al --color=auto'
+alias ll="ls -trh"
+alias la='ls -A'
+alias l='ls -CF'
+ 
+>>>>>>> 328bb3c615add20b9baa0018ca0e9c4be33dc107
 alias tm='tmux a -t deep'
 #export DISPLAY=
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"
 
+export SVN_EDITOR=vim
+export GIT_EDITOR=vim
 
-export LC_ALL=ko_KR.UTF-8
-export LANG=ko_KR.UTF-8
+export TMOUT=0
+
+git config --global user.name "Dongyeop Kang"
+git config --global user.email "dykang85@gmail.com"
+git config --global credential.helper cache
+
+
+#export LC_ALL=ko_KR.UTF-8
+#export LANG=ko_KR.UTF-8
 
 
 
