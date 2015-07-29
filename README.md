@@ -78,5 +78,12 @@ LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
 * install-option=--install-purelib=/python/packages
 
 
+## scipy instlal: http://www.scipy.org/install.html
+sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+
+
+## theano install: http://deeplearning.net/software/theano/install_ubuntu.html
+sudo apt-get install python-numpy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git
+sudo pip install Theano
 
 
