@@ -1,7 +1,5 @@
 simplejson
 python-dateutil
-pyquery
-cssselect
 flask
 hashids
 flask_wtf
@@ -27,5 +25,7 @@ backports.ssl_match_hostname
 wtforms
 py-bcrypt
 JPype1
-konlpy
-nltk
+ipython
+Theano
+gensim
+scikit-learn

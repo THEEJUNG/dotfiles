@@ -62,5 +62,21 @@ dot files for my Linux/Windows configuration
 * sudo apt-get install libxml2-dev libxslt-dev python-dev
 
 
+## python install
+./configure --with-ssl --enable-shared --with-pydebug --prefix=~/lib/python2.7
+make
+make install
+
+
+## LD_LIBRARY_PATH
+LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
+
+
+## pip install path
+* ~/.pip/pip.conf:
+* [install]
+* install-option=--install-purelib=/python/packages
+
+
 
 
