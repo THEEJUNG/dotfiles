@@ -29,3 +29,7 @@ ipython
 Theano
 gensim
 scikit-learn
+nose
+matplotlib
+pyyaml
+keras
