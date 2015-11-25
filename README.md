@@ -63,7 +63,8 @@ dot files for my Linux/Windows configuration
 
 
 ## python install
-./configure --with-ssl --enable-shared --with-pydebug --prefix=~/lib/python2.7
+* ./configure --with-ssl --enable-shared --with-pydebug --prefix=~/lib/python2.7
+* usually, don't doo --enable-shared
 make
 make install
 
