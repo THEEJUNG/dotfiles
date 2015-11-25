@@ -50,8 +50,8 @@ dot files for my Linux/Windows configuration
 
 # Python/Pip install & requirement.txt
 ## Python
-* ./configure --with-ssl --enable-unicode=ucs4 --enable-shared --with-pydebug --prefix=~/lib/python2.7
-* (never do --enable-shared)
+* ./configure --with-ssl --enable-unicode=ucs4  --prefix=~/lib/python2.7
+* (never do --enable-shared --with-pydebug)
 * make & make install
 ## pip
 * ~/.pip/pip.conf:
