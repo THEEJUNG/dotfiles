@@ -49,42 +49,36 @@ dot files for my Linux/Windows configuration
 *  move between panes: hjkl
 
 # Python/Pip install & requirement.txt
-## Python (UCS4, shared)
-* ./configure --enable-shared --enable-unicode=ucs4 --prefix=/local/dir/to/install
-* make & make install
-## Pip
-* pip install --install-option="--install-purelib=/python/packages" package_name
-##IPython
-* gnureadline, nose, mock, casperjs cython jinja2 matplotlib numpy oct2py pygments pymongo qt rpy2 sphinx zmq
-* iptest
-##Requirements.txt
-* pip install -r requirements.txt
-* sudo apt-get install libxml2-dev libxslt-dev python-dev
-
-
-## python install
+## Python
 * ./configure --with-ssl --enable-shared --with-pydebug --prefix=~/lib/python2.7
-* usually, don't doo --enable-shared
-make
-make install
-
-
-## LD_LIBRARY_PATH
-LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
-
-
-## pip install path
+* (never do --enable-shared)
+* make & make install
+## pip
 * ~/.pip/pip.conf:
 * [install]
 * install-option=--install-purelib=/python/packages
+##IPython
+* gnureadline, nose, mock, casperjs cython jinja2 matplotlib numpy oct2py pygments pymongo qt rpy2 sphinx zmq iptest
+##Requirements.txt
+* pip install -r requirements.txt
+ 
+## LD_LIBRARY_PATH
+LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
+
+# Run.sh
+* sudo apt-get install libxml2-dev libxslt-dev python-dev
+
+
+
+
 
 
 ## scipy instlal: http://www.scipy.org/install.html
-sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+* sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
 
 ## theano install: http://deeplearning.net/software/theano/install_ubuntu.html
-sudo apt-get install python-numpy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git
-sudo pip install Theano
+* sudo apt-get install python-numpy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git
+* sudo pip install Theano
 
 
