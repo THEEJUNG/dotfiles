@@ -50,7 +50,7 @@ dot files for my Linux/Windows configuration
 
 # Python/Pip install & requirement.txt
 ## Python
-* ./configure --with-ssl --enable-unicode=ucs4 --enable-shared --prefix=~/local/python2.7
+* ./configure --with-ssl --enable-unicode=ucs4 --enable-shared --enable-loadable-sqlite-extensions --prefix=~/local/python2.7 && make && make install
 * (never do  --with-pydebug)
 * make & make install
 ## pip
