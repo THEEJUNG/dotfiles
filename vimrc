@@ -1,13 +1,82 @@
-set notimeout
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set nocompatible 
+
+
+execute pathogen#infect()
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+Plugin 'nerdtree'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+
+" https://github.com/tmux-plugins/vim-tmux-focus-events
+" Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+" https://github.com/benmills/vimux
+" Plugin 'benmills/vimux'
+
+" https://github.com/lervag/vimtex
+" Plugin 'lervag/vimtex'
+
+" https://github.com/fatih/vim-go
+" Plugin 'fatih/vim-go'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+" filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+
+
 
 " load plugins via Pathogen
-filetype off
-call pathogen#helptags()
-call pathogen#incubate()
+" execute pathogen#infect()
+" syntax on
+" filetype plugin indent on
+" Pathogen load
+" filetype off
+
+" call pathogen#infect()
+" call pathogen#helptags()
 
 filetype plugin indent on
+
+
+
+" set notimeout
 
 " tabs
 set tabstop=4
@@ -39,7 +108,8 @@ set pastetoggle=<F8>
 au FocusLost * :wa
 set encoding=utf8
 set fileencodings=utf8,cp949
-syntax on 
+" syntax on 
+syntax enable
 set laststatus=2 " always show status line
 " set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ %{fugitive#statusline()}\ [%l,%v][%p%%]
 set number " show line number
@@ -85,7 +155,7 @@ imap <C-v> <Esc><C-v>a
 
 " autocmds
 " ========
-autocmd FileType c,cpp,js set expandtab
+autocmd FileType c,cpp,js,py set expandtab
 
 " leader commands
 " =============
@@ -152,9 +222,32 @@ map <leader>o :BufExplorer<CR>
 " NERDTree
 let NERDTreeChDirMode=0
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
-let NERDTreeShowBookmarks=1
-map <F4> :NERDTreeFind<CR>
-map <F5> :NERDTreeClose<CR>
+" let NERDTreeShowBookmarks=1
+" map <F4> :NERDTreeFind<CR>
+" map <F5> :NERDTreeClose<CR>
+"
+
+nmap <silent> <F4> :NERDTreeToggle<CR>
+
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+
+
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+
+
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
 
 " Fugitive
 nnoremap <leader>gs :Gstatus<CR>
@@ -194,3 +287,85 @@ nnoremap <C-q> :qa<CR>
 
 let g:gitgutter_enabled = 0
 nnoremap <leader>gg :GitGutterToggle<CR>
+
+
+
+" Statusline
+" https://github.com/pengwynn/dotfiles/blob/master/vim/vimrc.symlink#L160
+set statusline=                                     " Override default
+" set statusline+=%1*%{fugitive#statusline()[4:-2]}%* " Show fugitive git info
+set statusline+=%2*\ %f\ %m\ %r%*                   " Show filename/path
+set statusline+=%3*%=%*                             " Set right-side status info after this line
+set statusline+=%4*%l/%L:%v%*                       " Set <line number>/<total lines>:<column>
+set statusline+=%5*\ %*                             " Set ending space
+
+" Visualize tabs, trailing whitespaces and funny characters
+" http://www.reddit.com/r/programming/comments/9wlb7/proggitors_do_you_like_the_idea_of_indented/c0esam1
+" https://wincent.com/blog/making-vim-highlight-suspicious-characters
+" set list
+" set listchars=nbsp:¬,tab:»·,trail:·
+
+
+
+hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
+hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
+hi User3 guifg=#ff66ff guibg=#222222
+hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
+hi User5 guifg=#eeee40 guibg=#222222
+
+
+set smarttab
+set smartindent
+set ttyfast
+set autoread
+set more
+set cursorline!
+
+
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set timeoutlen=500
+
+" visual bell color
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" For regular expressions turn magic on
+set magic
+
+
+" pretty sweet linting/error checking. Works on save
+" :Bundle 'https://github.com/scrooloose/syntastic.git'
+"Bundle 'syntastic'
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"" let g:pymode_lint_write = 0
+"" let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python']
+"" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+"" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
+"" let g:syntastic_python_checkers=['pylint'] "'flake8']
+"" let g:syntastic_python_flake8_args='--ignore=E501,E225'
+"
+"let g:syntastic_python_pylint_post_args="--max-line-length=120"
+

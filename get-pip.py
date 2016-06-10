@@ -1,4 +1,4 @@
-#!/home/dongyeok/lib/python2.7/bin python
+#!/usr/bin/env python
 #
 # Hi There!
 # You may be wondering what this giant blob of binary data here is, you might

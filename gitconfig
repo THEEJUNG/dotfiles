@@ -31,3 +31,13 @@
     user = dykang
 [credential]
 	helper = cache
+[core]
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+	quotepath = false
+	pager = less -r
+[web]
+	browser = google-chrome
+
+

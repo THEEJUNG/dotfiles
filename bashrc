@@ -31,6 +31,18 @@ else
     PS1="${ansi_Brown}\u${ansi_White}@\h${ansi_Light_Green}:\w${ansi_Gray}]\$ "
 fi
 
+
+export DISPLAY='localhost:10.0'
+export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
+export PATH=$PYTHONPATH:$PATH
+
+
+alias nv='nvidia-smi'
+alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'
+
+
+alias work='cd ~/work'
+
 alias rm='rm -v -i'
 alias cp='cp -v -i'
 alias mv='mv -v -i'
@@ -55,9 +67,9 @@ shopt -s checkwinsize
 alias server='python -m SimpleHTTPServer 5000'
 alias tmux='TERM=screen-256color-bce tmux'
 alias src='source ~/.bashrc'
-alias ls='ls -a --color=auto'
+alias ls='ls --color=auto'
 alias ll="ls -ltrh"
-alias la='ls -A'
+alias la='ll -A'
 alias l='ls -CF'
  
 alias tm='tmux a -t deep'
