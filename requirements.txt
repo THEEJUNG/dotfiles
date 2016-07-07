@@ -31,8 +31,6 @@ backports.ssl_match_hostname
 wtforms
 py-bcrypt
 JPype1
-pyyaml
-gnureadline
 mock
 cython
 oct2py

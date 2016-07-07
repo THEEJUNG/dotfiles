@@ -21,11 +21,16 @@ sudo apt-get install -y tmux=2.0-1~ppa1~t
 # anaconda python
 mkdir -p down
 cd ~/data
-wget http://repo.continuum.io/archive/Anaconda2-4.1.0-Linux-x86_64.sh
+wget -nc http://repo.continuum.io/archive/Anaconda2-4.1.0-Linux-x86_64.sh
 bash Anaconda2-4.1.0-Linux-x86_64.sh
 
-# install dependencies
+
+# install dot files
 python install.py
+source ~/.bashrc
+
+# install dependencies
+pip install -r requirements.txt
 
 #Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
