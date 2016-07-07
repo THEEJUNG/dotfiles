@@ -1,11 +1,10 @@
 
 
-mkdir -p data
+mkdir -p ~/data
 
 # htop
 sudo apt-get install htop
-
-
+mkdir -p ~/.config/htop
 
 sudo apt-get install tmux
 sudo apt-get install xclip
@@ -19,7 +18,7 @@ sudo apt-get update
 sudo apt-get install -y tmux=2.0-1~ppa1~t
 
 # anaconda python
-mkdir -p down
+mkdir -p ~/down
 cd ~/data
 wget -nc http://repo.continuum.io/archive/Anaconda2-4.1.0-Linux-x86_64.sh
 bash Anaconda2-4.1.0-Linux-x86_64.sh

@@ -39,3 +39,4 @@ pymongo
 sphinx
 zmq
 lmfit
+nltk
