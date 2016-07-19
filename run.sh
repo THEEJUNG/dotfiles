@@ -38,6 +38,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 #python get-pip.py
 
+# gpustat
+sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
+sudo chmod +x /usr/local/bin/gpustat
 
 
 # tensorflow
