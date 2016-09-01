@@ -1,0 +1,10 @@
+[global]
+floatX=float32
+device=gpu
+optimizer=fast_run
+
+[nvcc]
+fastmath=True
+
+[blas]
+ldflags = -llapack -lblas
