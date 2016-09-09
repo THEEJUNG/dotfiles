@@ -40,3 +40,4 @@ sphinx
 zmq
 lmfit
 nltk
+ipdb
