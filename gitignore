@@ -1,13 +1,13 @@
 # Compiled source #
 ###################
 *.com
-*.class
+#*.class
 *.dll
 *.exe
 *.o
 *.so
 *.pyc
-*.pkl
+#*.pkl
 
 # Temporary files #
 ###################
@@ -35,9 +35,14 @@
 # OS generated files #
 ######################
 .DS_Store*
+Desktop.ini
 ehthumbs.db
 Icon?
 Thumbs.db
+._*
 
+ # Files that might appear on external disks
+.Spotlight-V100
+.Trashes
 
 

@@ -32,10 +32,12 @@ else
 fi
 
 
-export DISPLAY='localhost:10.0'
-export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
-export PATH=$PYTHONPATH:$PATH
+export DISPLAY="127.0.0.1:10.0"
+#export PYTHONPATH=$HOME/anaconda2/bin/
+#export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
+#export PATH=$PYTHONPATH:$PATH
 
+export PATH=$PATH:$HOME/work/dotfiles
 
 alias nv='nvidia-smi'
 alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'

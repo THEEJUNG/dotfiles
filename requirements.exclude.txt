@@ -1,0 +1,8 @@
+matplotlib
+casperjs
+qt
+rpy2
+iptest
+
+
+

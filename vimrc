@@ -1,64 +1,41 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"set nocompatible              " be iMproved, required
+"filetype off                  " required
 
 
+"call plug#begin('~/.vim/plugged')
 
-execute pathogen#infect()
+" Make sure you use single quotes
+"Plug 'junegunn/seoul256'
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Group dependencies, vim-snippets depends on ultisnips
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-Plugin 'nerdtree'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+" On-demand loading
 
-" https://github.com/tmux-plugins/vim-tmux-focus-events
-" Plugin 'tmux-plugins/vim-tmux-focus-events'
+" Using a non-master branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" https://github.com/benmills/vimux
-" Plugin 'benmills/vimux'
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+" Plug 'fatih/vim-go', { 'tag': '*' }
 
-" https://github.com/lervag/vimtex
-" Plugin 'lervag/vimtex'
+" Plugin options
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" https://github.com/fatih/vim-go
-" Plugin 'fatih/vim-go'
+" Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-" filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Unmanaged plugin (manually installed and updated)
+" Plug '~/my-prototype-plugin'
 
+" Plug 'tpope/vim-sensible'
 
+" Add plugins to &runtimepath
+" call plug#end()
 
 
 
@@ -79,10 +56,10 @@ filetype plugin indent on
 " set notimeout
 
 " tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 " search settings
 set ignorecase 
 set smartcase " do not ignore case when query is mixed case
@@ -93,7 +70,7 @@ map N Nzz " move search result to mid screen
 map n nzz
 
 " tab navigation
-set showtabline=2 " always show tab line
+"set showtabline=2 " always show tab line
 " map <C-t> :tabnew<CR>
 " map <tab> :tabnext<CR>
 " map <S-tab> :tabprevious<CR>
@@ -195,7 +172,7 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 " XtermColorTable
 set t_Co=256
 syntax on
-colorscheme mustang
+" colorscheme mustang
 
 " plugin commands
 " =================
@@ -314,8 +291,8 @@ hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
 hi User5 guifg=#eeee40 guibg=#222222
 
 
-set smarttab
-set smartindent
+"set smarttab
+"set smartindent
 set ttyfast
 set autoread
 set more
@@ -348,6 +325,9 @@ set incsearch
 set magic
 
 
+" Set tab size to 2
+set tabstop=2 shiftwidth=2 expandtab
+
 " pretty sweet linting/error checking. Works on save
 " :Bundle 'https://github.com/scrooloose/syntastic.git'
 "Bundle 'syntastic'
@@ -368,4 +348,3 @@ set magic
 "" let g:syntastic_python_flake8_args='--ignore=E501,E225'
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
-

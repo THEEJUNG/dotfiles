@@ -5,8 +5,19 @@
     editor = vim
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	quotepath = false
+	pager = less -r
 [push]
-    default = matching
+	# Use the Git 1.x.x default to avoid errors on machines with old Git
+	# installations. To use `simple` instead, add this to your `~/.extra` file:
+	# `git config --global push.default simple`. See http://git.io/mMah-w.
+	default = matching
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
 [color]
     ui = auto
 [color "branch"]
@@ -20,8 +31,8 @@
     new = green bold
     whitespace = red reverse
 [color "status"]
-    added = green bold
-    changed = yellow bold
+    added = yellow bold
+    changed = green bold
     untracked = red bold
 [diff]
     tool = vimdiff
@@ -31,12 +42,6 @@
     user = dykang
 [credential]
 	helper = cache
-[core]
-	editor = vim
-	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = ~/.gitignore
-	quotepath = false
-	pager = less -r
 [web]
 	browser = google-chrome
 
