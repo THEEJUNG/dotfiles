@@ -20,8 +20,8 @@ sudo apt-get install -y tmux=2.0-1~ppa1~t
 # anaconda python
 mkdir -p ~/down
 cd ~/data
-wget -nc http://repo.continuum.io/archive/Anaconda2-4.1.0-Linux-x86_64.sh
-bash Anaconda2-4.1.0-Linux-x86_64.sh
+wget -nc http://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+bash Anaconda2-4.2.0-Linux-x86_64.sh
 
 
 # install dot files
@@ -33,10 +33,6 @@ pip install -r requirements.txt
 
 #Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# install pip
-#wget https://bootstrap.pypa.io/ez_setup.py -O - | python
-#python get-pip.py
 
 # gpustat
 sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
@@ -51,5 +47,9 @@ sudo chmod +x /usr/local/bin/gpustat
 # For GPU-enabled version (only install this version if you have the CUDA sdk installed)
 #pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
 
+# vim pluggin
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+pip install neovim
 
 
