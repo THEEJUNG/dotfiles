@@ -70,7 +70,7 @@ alias server='python -m SimpleHTTPServer 5000'
 alias tmux='TERM=screen-256color-bce tmux'
 alias src='source ~/.bashrc'
 alias ls='ls --color=auto'
-alias ll="ls -ltrh"
+alias ll='ls -ltrh --hide="*.pyc"'
 alias la='ll -A'
 alias l='ls -CF'
  

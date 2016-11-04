@@ -1,5 +1,91 @@
 " set nocompatible              " be iMproved, required
-" filetype off                  " required
+filetype off                  " required
+
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+Plug 'junegunn/seoul256.vim'
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Group dependencies, vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
+
+
+"NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Multiple commands
+Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity']}
+
+" Loaded when clojure file is opened
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Multiple file types
+Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
+
+" On-demand loading on both conditions
+Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' }
+
+" Code to execute when the plugin is lazily loaded on demand
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+autocmd! User goyo.vim echom 'Goyo is now loaded!'
+
+
+Plug 'tpope/vim-sensible'
+
+" Add plugins to &runtimepath
+call plug#end()
+
+
+
+" load plugins via Pathogen
+" execute pathogen#infect()
+" syntax on
+" filetype plugin indent on
+" Pathogen load
+" filetype off
+
+" call pathogen#infect()
+" call pathogen#helptags()
+
+filetype plugin indent on
+
+" Unified color scheme (default: dark)
+" colo seoul256
+
+" Light color scheme
+" colo seoul256-light
+let g:seoul256_background = 236
+colo seoul256
+
+
+" Switch
+set background=dark
+"set background=light
 
 " set notimeout
 
@@ -7,7 +93,7 @@
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+
 " search settings
 set ignorecase 
 set smartcase " do not ignore case when query is mixed case
@@ -18,7 +104,7 @@ map N Nzz " move search result to mid screen
 map n nzz
 
 " tab navigation
-"set showtabline=2 " always show tab line
+" set showtabline=2 " always show tab line
 " map <C-t> :tabnew<CR>
 " map <tab> :tabnext<CR>
 " map <S-tab> :tabprevious<CR>
@@ -239,8 +325,8 @@ hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
 hi User5 guifg=#eeee40 guibg=#222222
 
 
-"set smarttab
-"set smartindent
+set smarttab
+set smartindent
 set ttyfast
 set autoread
 set more
@@ -273,9 +359,6 @@ set incsearch
 set magic
 
 
-" Set tab size to 2
-set tabstop=2 shiftwidth=2 expandtab
-
 " pretty sweet linting/error checking. Works on save
 " :Bundle 'https://github.com/scrooloose/syntastic.git'
 "Bundle 'syntastic'
@@ -296,3 +379,17 @@ set tabstop=2 shiftwidth=2 expandtab
 "" let g:syntastic_python_flake8_args='--ignore=E501,E225'
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
+
+set tabstop=2 shiftwidth=2 expandtab
+
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
+let g:airline_theme= 'gruvbox'
