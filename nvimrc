@@ -8,7 +8,6 @@ Plug 'junegunn/seoul256.vim'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -200,13 +199,9 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
-" mustang ftw!
-" colorscheme mustang
-
 " XtermColorTable
 set t_Co=256
 syntax on
-" colorscheme mustang
 
 " plugin commands
 " =================
@@ -380,7 +375,7 @@ set magic
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
-set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType python setlocal tabstop=2 shiftwidth=2 expandtab
 
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'

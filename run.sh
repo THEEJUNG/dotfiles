@@ -43,6 +43,8 @@ sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
 sudo chmod +x /usr/local/bin/gpustat
 
 
+#curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+
 # tensorflow
 #https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md
 # For CPU-only version
