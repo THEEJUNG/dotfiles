@@ -21,6 +21,7 @@ os.system("mv ~/.tmux.conf ~/.tmux.conf.old")
 jobs = [(j("vim"), "~/.vim"), (j("htoprc"), "~/.htoprc"), (j("theanorc"), "~/.theanorc"), (j("vimrc"), "~/.vimrc"), (j("nvimrc"), "~/.config/nvim/init.vim"), (j("gitconfig"), "~/.gitconfig"), (j("gitignore"), "~/.gitignore"), (j("tmux.conf"), "~/.tmux.conf"), (j("htoprc"), "~/.config/htop/htoprc") ]
 
 for path, target in jobs:
+    print target, path
     target = os.path.expanduser(target)
     if os.path.lexists(target):
         print target, "already exists"
