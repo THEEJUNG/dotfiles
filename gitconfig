@@ -2,9 +2,9 @@
 	name = Dongyeop Kang
 	email = dykang85@gmail.com
 [core]
-    editor = vim
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
+  editor = vim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	quotepath = false
 	pager = less -r

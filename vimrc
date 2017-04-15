@@ -140,7 +140,8 @@ set expandtab
 
 " colorscheme default
 " colorscheme elflord
-colorscheme zenburn
+colorscheme seoul256
+
 " " fix terminal transparency
 hi Normal ctermbg=NONE
 hi NonText ctermbg=none

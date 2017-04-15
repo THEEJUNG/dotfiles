@@ -24,9 +24,13 @@ for path, target in jobs:
     print target, path
     target = os.path.expanduser(target)
     if os.path.lexists(target):
-        print target, "already exists"
+      print target, "already exists"
     else:
+      try:
         os.symlink(path, target)
         print "created", target
+      except Exception as e:
+        print e
+        pass
 
 
