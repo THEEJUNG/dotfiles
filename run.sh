@@ -13,20 +13,20 @@
 #sudo apt-get update
 #sudo apt-get install -y tmux=2.0-1~ppa1~t
 
-# anaconda python
-mkdir -p ~/down
-cd ~/data
-wget -nc http://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
-bash Anaconda2-4.2.0-Linux-x86_64.sh
-
-curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+## anaconda python
+#mkdir -p ~/down
+#cd ~/data
+#wget -nc http://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+#bash Anaconda2-4.2.0-Linux-x86_64.sh
+#
+#curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # install dot files
-python install.py
-source ~/.bashrc
+#python install.py
+#source ~/.bashrc
 
 # install dependencies
-pip install -r requirements.txt
+#pip install -r requirements.txt
 
 #Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

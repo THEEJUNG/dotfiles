@@ -52,7 +52,7 @@ alias mv='mv -v -i'
 alias cls='clear'
 alias c='clear; ls;'
 alias ff='find . -name $*'
-
+alias vi='vim'
 
 #set autolist
 #set autocorrect

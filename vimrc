@@ -1,11 +1,7 @@
-
-
-set nocompatible              " be iMproved, required
-
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 let mapleader = ","
@@ -120,7 +116,8 @@ augroup END
 "{{{Misc Settings
 
 
-
+set shortmess=a
+set cmdheight=2
 
 filetype plugin indent on
 
@@ -148,10 +145,10 @@ hi NonText ctermbg=none
 " " set line hi
 set cursorline
 " " diff colors
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
-highlight DiffDelete cterm=bold ctermfg=1 ctermbg=23 gui=none guifg=bgguibg=Rex
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bgguibg=Red
+" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
+" highlight DiffDelete cterm=bold ctermfg=1 ctermbg=23 gui=none guifg=bgguibg=Rex
+" highlight DiffChange cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bgguibg=Red
 
 
 " search settings
@@ -348,8 +345,8 @@ vnoremap <silent> # :<C-U>
 silent !stty -ixon > /dev/null 2> /dev/null
 nnoremap <C-q> :qa<CR>
 
-let g:gitgutter_enabled = 0
-nnoremap <leader>gg :GitGutterToggle<CR>
+" let g:gitgutter_enabled = 0
+" nnoremap <leader>gg :GitGutterToggle<CR>
 
 
 
@@ -444,4 +441,4 @@ set tabstop=2 shiftwidth=2 expandtab
 "" let g:syntastic_python_checkers=['pylint'] "'flake8']
 "" let g:syntastic_python_flake8_args='--ignore=E501,E225'
 "
-"let g:syntastic_python_pylint_post_args="--max-line-length=120"
+"let g:syntastic_python_pylint_post_args="--max-line-length=121"
