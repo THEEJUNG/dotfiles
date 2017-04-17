@@ -32,12 +32,9 @@ else
 fi
 
 
-export DISPLAY="127.0.0.1:10.0"
-#export PYTHONPATH=$HOME/anaconda2/bin/
-#export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
-#export PATH=$PYTHONPATH:$PATH
-
 export PATH=$PATH:$HOME/work/dotfiles
+
+export DISPLAY="127.0.0.1:10.0"
 
 alias nv='nvidia-smi'
 alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'
@@ -75,7 +72,6 @@ alias la='ll -A'
 alias l='ls -CF'
  
 alias tm='tmux a -t deep'
-#export DISPLAY=
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"
@@ -84,12 +80,6 @@ export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 
 export TMOUT=0
-
-git config --global user.name "Dongyeop Kang"
-git config --global user.email "dykang85@gmail.com"
-git config --global credential.helper cache
-
-
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
 

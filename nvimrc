@@ -375,6 +375,7 @@ set magic
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
+set expandtab
 autocmd FileType python setlocal tabstop=2 shiftwidth=2 expandtab
 
 let g:airline#extensions#tabline#enabled = 2

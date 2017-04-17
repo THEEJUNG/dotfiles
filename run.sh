@@ -38,6 +38,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
 sudo chmod +x /usr/local/bin/gpustat
 
+#install java using conda
+conda install -c cyclus java-jdk=8.45.14
+
 
 #curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
