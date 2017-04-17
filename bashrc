@@ -89,8 +89,6 @@ export TMOUT=0
 git config --global user.name "Dongyeop Kang"
 git config --global user.email "dykang85@gmail.com"
 git config --global credential.helper cache
-
-
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
 

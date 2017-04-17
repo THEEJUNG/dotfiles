@@ -1,7 +1,3 @@
-
-
-set nocompatible              " be iMproved, required
-
 set nocompatible
 filetype off
 
@@ -13,34 +9,24 @@ let mapleader = ","
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-
 " My Bundles here:
-
 " Allows you to use <tab> for all insert completion needs
 Bundle 'ervandew/supertab'
-
 " Comment plugin - gcc toggles comment of current line
 Bundle 'tomtom/tcomment_vim'
-
 " adds cool git stuff from within vim
 Bundle 'tpope/vim-fugitive'
-
 " cs"' changes surrounding " to '
 Bundle 'tpope/vim-surround'
-
 " quick file switcher
 Bundle 'wincent/Command-T'
-
 Bundle 'vim-scripts/right_align'
-
 
 "" display color for code code 
 " Bundle 'lilydjwg/colorizer'
 Bundle 'flazz/vim-colorschemes'
-
 "" calendar
 Bundle 'itchyny/calendar.vim'
-
 
 " Snipmate and dependencies
 " Allows you to complete code snipits like 'for loops'!
@@ -124,11 +110,6 @@ augroup END
 
 filetype plugin indent on
 
-
-
-
-
-
 " set notimeout
 " tabs
 set tabstop=2
@@ -138,8 +119,7 @@ set expandtab
 
 
 
-" colorscheme default
-" colorscheme elflord
+" colorscheme default elflord
 colorscheme seoul256
 
 " " fix terminal transparency
@@ -287,7 +267,7 @@ map <leader>o :BufExplorer<CR>
 " leT neRDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
 " let NERDTreeShowBookmarks=1
 " map <F4> :NERDTreeFind<CR>
-" map <F5> :NERDTreeClose<CR>
+" map <f5> :NERDTreeClose<CR>
 "
 
 " nmap <silent> <F4> :NERDTreeToggle<CR>
@@ -295,22 +275,15 @@ map <leader>o :BufExplorer<CR>
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-
-
-
 " autocmd vimenter * NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-
-
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-
 
 " Fugitive
 nnoremap <leader>gs :Gstatus<CR>
@@ -319,6 +292,11 @@ nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
 
+set number
+" nnoremap <F2> :set nonumber! norelativenumber!<CR>
+" inoremap <silent> <F2>=<Esc>:set nonumber! norelativenumber!<F2>
+silent! map <F2> :set nonumber! norelativenumber!<CR>
+nmap <F2> :set number! number?<CR>
 nnoremap <F2> :call ToggleMouse()<CR>
 nnoremap <F3> :set wrap!<CR>
 function! ToggleMouse()
@@ -368,23 +346,18 @@ set statusline+=%5*\ %*                             " Set ending space
 " set list
 " set listchars=nbsp:¬,tab:»·,trail:·
 
-
-
 hi User1 ctermfg=196 guifg=#eea040 guibg=#222222
 hi User2 ctermfg=75 guifg=#dd3333 guibg=#222222
 hi User3 guifg=#ff66ff guibg=#222222
 hi User4 ctermfg=239 guifg=#a0ee40 guibg=#222222
 hi User5 guifg=#eeee40 guibg=#222222
 
-
-"set smarttab
+set smarttab
 "set smartindent
 set ttyfast
 set autoread
 set more
 set cursorline!
-
-
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -400,13 +373,10 @@ set novisualbell
 set timeoutlen=500
 
 " visual bell color
-
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch
-
 " For regular expressions turn magic on
 set magic
 
@@ -423,7 +393,7 @@ set magic
 
 
 " Set tab size to 2
-set tabstop=2 shiftwidth=2 expandtab
+" set tabstop=2 shiftwidth=2 expandtab
 
 " pretty sweet linting/error checking. Works on save
 " :Bundle 'https://github.com/scrooloose/syntastic.git'
