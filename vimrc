@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 
-set nocompatible              " be iMproved, required
-
-=======
->>>>>>> be47729b404d55862eef7504cb0f61e7bb5825a7
 set nocompatible
 filetype off
 
@@ -121,9 +116,6 @@ augroup END
 
 "{{{Misc Settings
 
-
-set shortmess=a
-set cmdheight=2
 
 filetype plugin indent on
 
