@@ -31,6 +31,12 @@ else
     PS1="${ansi_Brown}\u${ansi_White}@\h${ansi_Light_Green}:\w${ansi_Gray}]\$ "
 fi
 
+PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
+
+export DISPLAY="127.0.0.1:0.0"
+#export PYTHONPATH=$HOME/anaconda2/bin/
+#export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
+#export PATH=$PYTHONPATH:$PATH
 
 export PATH=$PATH:$HOME/work/dotfiles
 
@@ -48,7 +54,7 @@ alias mv='mv -v -i'
 alias cls='clear'
 alias c='clear; ls;'
 alias ff='find . -name $*'
-
+alias vi='/usr/bin/vim'
 
 #set autolist
 #set autocorrect

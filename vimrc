@@ -1,13 +1,157 @@
-" set nocompatible              " be iMproved, required
-" filetype off                  " required
+
+set nocompatible              " be iMproved, required
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
+
+let mapleader = ","
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+
+" Allows you to use <tab> for all insert completion needs
+Bundle 'ervandew/supertab'
+
+" Comment plugin - gcc toggles comment of current line
+Bundle 'tomtom/tcomment_vim'
+
+" adds cool git stuff from within vim
+Bundle 'tpope/vim-fugitive'
+
+" cs"' changes surrounding " to '
+Bundle 'tpope/vim-surround'
+
+" quick file switcher
+Bundle 'wincent/Command-T'
+
+Bundle 'vim-scripts/right_align'
+
+
+"" display color for code code 
+" Bundle 'lilydjwg/colorizer'
+Bundle 'flazz/vim-colorschemes'
+
+"" calendar
+Bundle 'itchyny/calendar.vim'
+
+
+" Snipmate and dependencies
+" Allows you to complete code snipits like 'for loops'!
+" Bundle "MarcWeber/vim-addon-mw-utils"
+" Bundle "tomtom/tlib_vim"
+" Bundle "honza/snipmate-snippets"
+" Bundle 'garbas/vim-snipmate'
+
+" fantastic file browser, open a directory with vim
+" Bundle 'scrooloose/nerdtree'
+" autocmd vimenter * NERDTree
+" noremap <Leader>a :NERDTreeFocus<CR>
+
+" Aligns on any character with ':Align ='
+Bundle 'vim-scripts/Align'
+
+" Run ack from within vim!
+Bundle 'rking/ag.vim'
+noremap <Leader>a :Ag <cword><cr>
+
+" 1. Open NERDtree
+" 2. Point to a directory
+" 3. Press `ms`
+" 4. Enter search term (e.g. `control\ panel -i`)
+" 5. Profit!
+" Bundle 'vim-scripts/nerdtree-ack'
+
+
+" BEAUTIFUL POWERLINE
+Bundle 'Lokaltog/vim-powerline'
+
+" Git gutter shows diffs on the left num bar!
+Bundle 'airblade/vim-gitgutter'
+
+" Coffeescript support
+Bundle 'kchmck/vim-coffee-script'
+
+" Markdown support
+Bundle 'tpope/vim-markdown'
+
+"{{{Auto Commands
+
+" Automatically cd into the directory that the file is in
+" set autochdir
+
+" Remove any trailing whitespace that is in the file
+" autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" Restore cursor position to where it was before
+augroup JumpCursorOnEdit
+  au!
+  autocmd BufReadPost *
+        \ if expand("<afile>:p:h") !=? $TEMP |
+        \   if line("'\"") > 1 && line("'\"") <= line("$") |
+        \     let JumpCursorOnEdit_foo = line("'\"") |
+        \     let b:doopenfold = 1 |
+        \     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
+        \        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
+        \        let b:doopenfold = 2 |
+        \     endif |
+        \     exe JumpCursorOnEdit_foo |
+        \   endif |
+        \ endif
+  " Need to postpone using "zv" until after reading the modelines.
+  autocmd BufWinEnter *
+        \ if exists("b:doopenfold") |
+        \   exe "normal zv" |
+        \   if(b:doopenfold > 1) |
+        \       exe  "+".1 |
+        \   endif |
+        \   unlet b:doopenfold |
+        \ endif
+augroup END
+
+"}}}
+
+"{{{Misc Settings
+
+
+
+
+filetype plugin indent on
+
+
+
+
 
 " set notimeout
-
 " tabs
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+
+
+" colorscheme default
+" colorscheme elflord
+colorscheme seoul256
+
+" " fix terminal transparency
+hi Normal ctermbg=NONE
+hi NonText ctermbg=none
+" " set line hi
+set cursorline
+" " diff colors
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
+highlight DiffDelete cterm=bold ctermfg=1 ctermbg=23 gui=none guifg=bgguibg=Rex
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bgguibg=Red
+
+
 " search settings
 set ignorecase 
 set smartcase " do not ignore case when query is mixed case
@@ -16,13 +160,8 @@ set showmatch
 set hlsearch " highlight search
 map N Nzz " move search result to mid screen
 map n nzz
-
 " tab navigation
-"set showtabline=2 " always show tab line
-" map <C-t> :tabnew<CR>
-" map <tab> :tabnext<CR>
-" map <S-tab> :tabprevious<CR>
-" map <C-w> :tabclose<CR>
+" set showtabline=2 " always show tab line
 " line wraps
 set wrap
 set textwidth=0 
@@ -114,13 +253,10 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
-" mustang ftw!
-" colorscheme mustang
 
 " XtermColorTable
 set t_Co=256
 syntax on
-" colorscheme mustang
 
 " plugin commands
 " =================
@@ -132,7 +268,7 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_working_path_mode = 0
 
 " Ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column --nojs"
+" let g:ackprg="ack-grep -H --nocolor --nogroup --column --nojs"
 nnoremap <leader>a :Ack 
 nnoremap <leader>A :Ack <C-R><C-W><CR>
 
@@ -144,15 +280,15 @@ let g:yankring_history_dir='~/.vim'
 " bufexplorer
 map <leader>o :BufExplorer<CR>
 
-" NERDTree
-let NERDTreeChDirMode=0
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
+" nerdTree
+" let nerdTreeChDirMode=0
+" leT neRDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
 " let NERDTreeShowBookmarks=1
 " map <F4> :NERDTreeFind<CR>
 " map <F5> :NERDTreeClose<CR>
 "
 
-nmap <silent> <F4> :NERDTreeToggle<CR>
+" nmap <silent> <F4> :NERDTreeToggle<CR>
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -271,6 +407,17 @@ set incsearch
 
 " For regular expressions turn magic on
 set magic
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  4 => Display {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme solarized
+" set background=dark                         " color
+" set novisualbell                            " No mouseflash
+" set encoding=utf8
+" colorscheme desert                          " color
 
 
 " Set tab size to 2
