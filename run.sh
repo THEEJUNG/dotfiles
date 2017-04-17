@@ -31,12 +31,12 @@
 #Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# gpustat
-sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
-sudo chmod +x /usr/local/bin/gpustat
-
-#install java using conda
-conda install -c cyclus java-jdk=8.45.14
+## gpustat
+#sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
+#sudo chmod +x /usr/local/bin/gpustat
+#
+##install java using conda
+#conda install -c cyclus java-jdk=8.45.14
 
 
 # tensorflow
@@ -47,8 +47,8 @@ conda install -c cyclus java-jdk=8.45.14
 #pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
 
 # vim pluggin
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-pip install neovim
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#pip install neovim
 
 
