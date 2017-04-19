@@ -22,6 +22,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/right_align'
 
+" Bundle 'vim-scripts/right_align'
+
 "" display color for code code 
 " Bundle 'lilydjwg/colorizer'
 Bundle 'flazz/vim-colorschemes'
@@ -56,10 +58,10 @@ noremap <Leader>a :Ag <cword><cr>
 
 
 " BEAUTIFUL POWERLINE
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
 
 " Git gutter shows diffs on the left num bar!
-Bundle 'airblade/vim-gitgutter'
+" Bundle 'airblade/vim-gitgutter'
 
 " Coffeescript support
 Bundle 'kchmck/vim-coffee-script'
@@ -146,7 +148,7 @@ map n nzz
 set wrap
 set textwidth=0 
 " autoindent
-set autoindent
+" set autoindent
 set pastetoggle=<F8>
 " save when focus is lost
 au FocusLost * :wa
@@ -199,7 +201,19 @@ imap <C-v> <Esc><C-v>a
 
 " autocmds
 " ========
-autocmd FileType c,cpp,js,py set expandtab
+" autocmd FileType c,cpp,js,py set tabstop=2 shiftwidth=2 softtabstop=2
+au Filetype python setl et ts=2 sw=2
+"Set tab size to 2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+" smarttab
+" set expandtab
+" set softtabstop=0 noexpandtab
+
+
+
+
 
 " leader commands
 " =============
@@ -352,6 +366,8 @@ hi User5 guifg=#eeee40 guibg=#222222
 
 set smarttab
 "set smartindent
+" set smarttab
+" set smartindent
 set ttyfast
 set autoread
 set more
