@@ -38,9 +38,10 @@ Bundle 'itchyny/calendar.vim'
 " Bundle 'garbas/vim-snipmate'
 
 " fantastic file browser, open a directory with vim
-" Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 " autocmd vimenter * NERDTree
 " noremap <Leader>a :NERDTreeFocus<CR>
+" Better file browser
 
 " Aligns on any character with ':Align ='
 Bundle 'vim-scripts/Align'
@@ -56,6 +57,16 @@ noremap <Leader>a :Ag <cword><cr>
 " 5. Profit!
 " Bundle 'vim-scripts/nerdtree-ack'
 
+" Code commenter
+Plugin 'scrooloose/nerdcommenter'
+" Class/module browser
+Plugin 'majutsushi/tagbar'
+"" Zen coding
+Plugin 'mattn/emmet-vim'
+" Git integration
+Plugin 'motemen/git-vim'
+" Tab list panel
+Plugin 'kien/tabman.vim'
 
 " BEAUTIFUL POWERLINE
 " Bundle 'Lokaltog/vim-powerline'
@@ -267,32 +278,43 @@ nnoremap <leader>a :Ack
 nnoremap <leader>A :Ack <C-R><C-W><CR>
 
 " Yankring
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
-let g:yankring_history_dir='~/.vim'
+" nnoremap <silent> <F3> :YRShow<cr>
+" inoremap <silent> <F3> <ESC>:YRShow<cr>
+" let g:yankring_history_dir='~/.vim'
 
 " bufexplorer
 map <leader>o :BufExplorer<CR>
 
-" nerdTree
+" " nerdTree
 " let nerdTreeChDirMode=0
-" leT neRDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
 " let NERDTreeShowBookmarks=1
-" map <F4> :NERDTreeFind<CR>
-" map <f5> :NERDTreeClose<CR>
-"
-
+map <F4> :NERDTreeFind<CR>
+map <f5> :NERDTreeClose<CR>
 " nmap <silent> <F4> :NERDTreeToggle<CR>
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " autocmd vimenter * NERDTree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" 
+" auto open or close NERDTree
+" autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" " NERDTree -----------------------------
+" toggle nerdtree display
+map <F3> :NERDTreeToggle<CR>
+" open nerdtree with the current file selected
+nmap ,t :NERDTreeFind<CR>
+" don;t show these file types
+
+
+
+
+
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -307,10 +329,23 @@ nnoremap <leader>gp :Gpush<CR>
 set number
 " nnoremap <F2> :set nonumber! norelativenumber!<CR>
 " inoremap <silent> <F2>=<Esc>:set nonumber! norelativenumber!<F2>
-silent! map <F2> :set nonumber! norelativenumber!<CR>
-nmap <F2> :set number! number?<CR>
-nnoremap <F2> :call ToggleMouse()<CR>
-nnoremap <F3> :set wrap!<CR>
+" silent! map <F2> :set nonumber! norelativenumber!<CR>
+" nmap <F2> :set number! number?<CR>
+" nnoremap <F2> :call ToggleMouse()<CR>
+" Nnoremap <F3> :set wrap!<CR>
+
+"set <F2>=<C-v><F2>
+"map <F2> <C-A>
+"map <Esc>[31~ <C-X>
+
+if $TERM==#"<C-r>=$TERM<CR>"
+  noremap <F2> :set nonumber! norelativenumber!<CR>
+endif 
+
+nnoremap <F2> :set nonumber! number?<CR>
+nmap <F2> <C-v>:set nonumber! number?<CR>
+
+
 function! ToggleMouse()
   if &mouse == 'a'
 	set nonu
@@ -429,3 +464,29 @@ set magic
 "" let g:syntastic_python_flake8_args='--ignore=E501,E225'
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=121"
+
+
+
+" Syntastic ------------------------------
+" " show list of errors and warnings on the current file
+nmap <leader>e :Errors<CR>
+" turn to next or previous errors, after open errors list
+nmap <leader>n :lnext<CR>
+nmap <leader>p :lprevious<CR>
+" check also when just opened the file
+let g:syntastic_check_on_open = 1
+" syntastic checker for javascript.
+" eslint is the only tool support JSX.
+" If you don't need write JSX, you can use jshint.
+" And eslint is slow, but not a hindrance
+" let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+" don't put icons on the sign column (it hides the vcs status icons of signify)
+let g:syntastic_enable_signs = 0
+" custom icons (enable them if you use a patched font, and enable the previous " setting)
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+
+
