@@ -40,6 +40,8 @@ export DISPLAY="127.0.0.1:0.0"
 
 export PATH=$PATH:$HOME/work/dotfiles
 
+export DISPLAY="127.0.0.1:10.0"
+
 alias nv='nvidia-smi'
 alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'
 
@@ -52,7 +54,7 @@ alias mv='mv -v -i'
 alias cls='clear'
 alias c='clear; ls;'
 alias ff='find . -name $*'
-
+# alias vi='/usr/bin/vim'
 
 #set autolist
 #set autocorrect
@@ -76,7 +78,6 @@ alias la='ll -A'
 alias l='ls -CF'
  
 alias tm='tmux a -t deep'
-#export DISPLAY=
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"
@@ -88,7 +89,7 @@ export TMOUT=0
 
 git config --global user.name "Dongyeop Kang"
 git config --global user.email "dykang85@gmail.com"
-git config --global credential.helper cache
+git config --global credential.helper store
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
 
