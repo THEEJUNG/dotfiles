@@ -1,4 +1,24 @@
+" scriptencodig utf-8
+" ============================================================================
+" Author: Dongyeop Kang
+" Version: v1.0
+" Update Time: 2017-04-19
+" ============================================================================
+
+" no vi-compatible
 set nocompatible
+
+" Setting up Vundle - the best vim plugin manager
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    let iCanHazVundle=0
+endif
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -7,9 +27,10 @@ call vundle#rc()
 let mapleader = ","
 
 " let Vundle manage Vundle
-" required!
 Bundle 'gmarik/vundle'
-" My Bundles here:
+
+" ============================================================================
+" Active plugins
 " Allows you to use <tab> for all insert completion needs
 Bundle 'ervandew/supertab'
 " Comment plugin - gcc toggles comment of current line
@@ -39,10 +60,6 @@ Bundle 'itchyny/calendar.vim'
 
 " fantastic file browser, open a directory with vim
 Bundle 'scrooloose/nerdtree'
-" autocmd vimenter * NERDTree
-" noremap <Leader>a :NERDTreeFocus<CR>
-" Better file browser
-
 " Aligns on any character with ':Align ='
 Bundle 'vim-scripts/Align'
 
@@ -66,14 +83,22 @@ Plugin 'kien/tabman.vim'
 " Pending tasks list
 Plugin 'fisadev/FixedTaskList.vim'
 
+" Python mode (indentation, doc, refactor, lints, code checking, motion and
+" operators, highlighting, run and ipdb breakpoints)
+Plugin 'klen/python-mode'
+
+" Python and other languages code checker
+Plugin 'scrooloose/syntastic'
+
+
 " BEAUTIFUL POWERLINE
 " Bundle 'Lokaltog/vim-powerline'
 
 " Git gutter shows diffs on the left num bar!
-" Bundle 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 
 " Coffeescript support
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 
 " Markdown support
 Bundle 'tpope/vim-markdown'
@@ -81,11 +106,9 @@ Bundle 'tpope/vim-markdown'
 "{{{Auto Commands
 
 " Automatically cd into the directory that the file is in
-set autochdir
-
+" set autochdir
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
   au!
@@ -115,13 +138,6 @@ augroup END
 filetype plugin indent on
 
 set notimeout
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-
-
 " colorscheme default elflord
 colorscheme seoul256
 
@@ -202,6 +218,7 @@ imap <C-v> <Esc><C-v>a
 
 " autocmds
 " ========
+set expandtab
 " autocmd FileType c,cpp,js,py set tabstop=2 shiftwidth=2 softtabstop=2
 au Filetype python setl et ts=2 sw=2
 "Set tab size to 2
@@ -424,39 +441,12 @@ set magic
 
 
 
-" Set tab size to 2
-" set tabstop=2 shiftwidth=2 expandtab
 
+" Syntastic ------------------------------
 " pretty sweet linting/error checking. Works on save
 " :Bundle 'https://github.com/scrooloose/syntastic.git'
 "Bundle 'syntastic'
-"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-"" let g:pymode_lint_write = 0
-"" let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python']
-"" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
-"" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
-"" let g:syntastic_python_checkers=['pylint'] "'flake8']
-"" let g:syntastic_python_flake8_args='--ignore=E501,E225'
-"
-"let g:syntastic_python_pylint_post_args="--max-line-length=121"
-
-
-
-" SuperTAb: Why does <tab> navigate the completion menu from bottom to top?
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-
-
-" Syntastic ------------------------------
-" " show list of errors and warnings on the current file
+" show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
 " turn to next or previous errors, after open errors list
 nmap <leader>n :lnext<CR>
@@ -471,14 +461,46 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['eslint']
 " don't put icons on the sign column (it hides the vcs status icons of signify)
 let g:syntastic_enable_signs = 0
-" custom icons (enable them if you use a patched font, and enable the previous " setting)
+" custom icons (enable them if you use a patched font, and enable the previous setting)
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+" let g:pymode_lint_write = 0
+" let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python']
+" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
+" let g:syntastic_python_checkers=['pylint'] "'flake8']
+" let g:syntastic_python_flake8_args='--ignore=E501,E225'
+" let g:syntastic_python_pylint_post_args="--max-line-length=121"
+
+" Python-mode ------------------------------
+" don't use linter, we use syntastic for that
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_signs = 0
+" don't fold python code on open
+let g:pymode_folding = 0
+" don't load rope by default. Change to 1 to use rope
+let g:pymode_rope = 0
+" open definitions on same window, and custom mappings for definitions and occurrences
+let g:pymode_rope_goto_definition_bind = ',d'
+let g:pymode_rope_goto_definition_cmd = 'e'
+nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
+nmap ,o :RopeFindOccurrences<CR>
 
 
-" Calendar
+
+" SuperTAb: Why does <tab> navigate the completion menu from bottom to top?
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" Calendar for Google Calendar porting
 " let g:calendar_google_calendar = 1
 " let g:calendar_google_task = 1
 
@@ -531,4 +553,3 @@ highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-
