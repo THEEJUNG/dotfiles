@@ -70,13 +70,17 @@ shopt -s histappend
 shopt -s checkwinsize
 
 alias server='python -m SimpleHTTPServer 5000'
-alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=xterm-256color tmux'
+export TERM="xterm-256color"
+alias tmux="tmux -2"
+set t_Co=256
 alias src='source ~/.bashrc'
 alias ls='ls --color=auto'
 alias ll='ls -ltrh --hide="*.pyc"'
 alias la='ll -A'
 alias l='ls -CF'
- 
+
 alias tm='tmux a -t deep'
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"

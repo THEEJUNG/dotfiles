@@ -24,7 +24,7 @@ Bundle 'vim-scripts/right_align'
 
 " Bundle 'vim-scripts/right_align'
 
-"" display color for code code 
+"" display color for code code
 " Bundle 'lilydjwg/colorizer'
 Bundle 'flazz/vim-colorschemes'
 "" calendar
@@ -50,16 +50,11 @@ Bundle 'vim-scripts/Align'
 Bundle 'rking/ag.vim'
 noremap <Leader>a :Ag <cword><cr>
 
-" 1. Open NERDtree
-" 2. Point to a directory
-" 3. Press `ms`
-" 4. Enter search term (e.g. `control\ panel -i`)
-" 5. Profit!
 " Bundle 'vim-scripts/nerdtree-ack'
 
-" Code commenter
+" Code commenter: XXX cs cc cu
 Plugin 'scrooloose/nerdcommenter'
-" Class/module browser
+" Class/module browser: XXX http://ctags.sourceforge.net/
 Plugin 'majutsushi/tagbar'
 "" Zen coding
 Plugin 'mattn/emmet-vim'
@@ -67,6 +62,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'motemen/git-vim'
 " Tab list panel
 Plugin 'kien/tabman.vim'
+
+" Pending tasks list
+Plugin 'fisadev/FixedTaskList.vim'
 
 " BEAUTIFUL POWERLINE
 " Bundle 'Lokaltog/vim-powerline'
@@ -83,10 +81,10 @@ Bundle 'tpope/vim-markdown'
 "{{{Auto Commands
 
 " Automatically cd into the directory that the file is in
-" set autochdir
+set autochdir
 
 " Remove any trailing whitespace that is in the file
-" autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
@@ -114,15 +112,9 @@ augroup JumpCursorOnEdit
         \ endif
 augroup END
 
-"}}}
-
-"{{{Misc Settings
-
-
 filetype plugin indent on
 
- set notimeout
-" tabs
+set notimeout
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -138,15 +130,10 @@ hi Normal ctermbg=NONE
 hi NonText ctermbg=none
 " " set line hi
 set cursorline
-" " diff colors
-" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
-" highlight DiffDelete cterm=bold ctermfg=1 ctermbg=23 gui=none guifg=bgguibg=Rex
-" highlight DiffChange cterm=bold ctermfg=10 ctermbg=23 gui=none guifg=bgguibg=Red
-" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bgguibg=Red
 
 
 " search settings
-set ignorecase 
+set ignorecase
 set smartcase " do not ignore case when query is mixed case
 set incsearch
 set showmatch
@@ -157,7 +144,7 @@ map n nzz
 " set showtabline=2 " always show tab line
 " line wraps
 set wrap
-set textwidth=0 
+set textwidth=0
 " autoindent
 " set autoindent
 set pastetoggle=<F8>
@@ -165,33 +152,36 @@ set pastetoggle=<F8>
 au FocusLost * :wa
 set encoding=utf8
 set fileencodings=utf8,cp949
-" syntax on 
+" syntax on
 syntax enable
 set laststatus=2 " always show status line
 " set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ %{fugitive#statusline()}\ [%l,%v][%p%%]
 set number " show line number
 set scrolljump=1 " 1 line scrolls
 set scrolloff=3 " start scrolling with 3 lines remaining on screen
-set visualbell 
+set visualbell
 set cursorline " show cursor line
-set ttyfast " 
+set ttyfast "
 set ruler " show cursor location
 set backspace=indent,eol,start " fix backspace
 set mouse=a " use mouse
-set showmode " 
-set showcmd " 
-set hidden " 
+set showmode "
+set showcmd "
+set hidden "
 set wildmenu " autocomplete
 set wildmode=list:longest,full
-set whichwrap=b,s,h,l,<,>,[,] " 
+set whichwrap=b,s,h,l,<,>,[,] "
 set lazyredraw " do not redraw while running macros
-set history=1000 " 
-set undolevels=1000 " 
+set history=1000 "
+set undolevels=1000 "
 
 let mapleader = "\\"
 
 set foldmethod=syntax
 set foldlevel=999 " do not fold at first
+
+
+
 
 " keyboard maps
 " ===========
@@ -241,9 +231,9 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>v V`]
 " vertical split
 nnoremap <leader>w <C-w>v<C-w>l
-" horizontal split 
+" horizontal split
 nnoremap <leader>e <C-w>s<C-w>j
-" close split 
+" close split
 nnoremap <leader>q <C-w>q
 " move between splits
 nnoremap <C-h> <C-w>h
@@ -261,6 +251,7 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
 " XtermColorTable
 set t_Co=256
+set t_ut=
 syntax on
 
 " plugin commands
@@ -274,7 +265,7 @@ let g:ctrlp_working_path_mode = 0
 
 " Ack
 " let g:ackprg="ack-grep -H --nocolor --nogroup --column --nojs"
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
 nnoremap <leader>A :Ack <C-R><C-W><CR>
 
 " Yankring
@@ -290,8 +281,9 @@ map <leader>o :BufExplorer<CR>
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
 " let NERDTreeShowBookmarks=1
 map <F4> :NERDTreeFind<CR>
-map <f5> :NERDTreeClose<CR>
+" map <f5> :NERDTreeClose<CR>
 " nmap <silent> <F4> :NERDTreeToggle<CR>
+
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -300,17 +292,19 @@ map <f5> :NERDTreeClose<CR>
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" 
+"
 " auto open or close NERDTree
 " autocmd vimenter * if !argc() | NERDTree | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " " NERDTree -----------------------------
-" toggle nerdtree display
-map <F3> :NERDTreeToggle<CR>
-" open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 
+map <F1> :TaskList<CR>
+map <F2> :set nonumber! number?<CR>
+map <F3> :NERDTreeToggle<CR>
+map <F4> :NERDTreeFind<CR>
+map <F5> :Tagbar<CR>
+map <F6> :TMToggle<CR>
 
 
 
@@ -338,13 +332,12 @@ set number
 "map <F2> <C-A>
 "map <Esc>[31~ <C-X>
 
-if $TERM==#"<C-r>=$TERM<CR>"
-  noremap <F2> :set nonumber! norelativenumber!<CR>
-endif 
 
-nnoremap <F2> :set nonumber! number?<CR>
-nmap <F2> <C-v>:set nonumber! number?<CR>
+" Tagbar -----------------------------
 
+" autofocus on tagbar open
+let g:tagbar_autofocus = 1
+let g:tagbar_ctags_bin = '/home/dongyeok/local/ctags/bin/ctags'
 
 function! ToggleMouse()
   if &mouse == 'a'
@@ -431,16 +424,6 @@ set magic
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  4 => Display {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme solarized
-" set background=dark                         " color
-" set novisualbell                            " No mouseflash
-" set encoding=utf8
-" colorscheme desert                          " color
-
-
 " Set tab size to 2
 " set tabstop=2 shiftwidth=2 expandtab
 
@@ -467,6 +450,11 @@ set magic
 
 
 
+" SuperTAb: Why does <tab> navigate the completion menu from bottom to top?
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
+
 " Syntastic ------------------------------
 " " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
@@ -489,4 +477,58 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 
+
+" Calendar
+" let g:calendar_google_calendar = 1
+" let g:calendar_google_task = 1
+
+" Tab moving
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+" Alternatively use
+"nnoremap th :tabnext<CR>
+"nnoremap tl :tabprev<CR>
+"nnoremap tn :tabnew<CR>
+
+
+" Vim-markdown ------------------------------
+" Disabled automatically foldinG
+let g:vim_markdown_folding_disabled=1
+" LeTeX math
+let g:vim_markdown_math=1
+" Highlight YAML frontmatter
+let g:vim_markdown_frontmatter=1
+
+" Vim-instant-markdown -----------------
+
+" If it takes your system too much, you can specify
+" let g:instant_markdown_slow = 1
+" if you don't want to manually control it
+" you can open this setting
+" and when you open this, you can manually trigger preview
+" via the command :InstantMarkdownPreview
+let g:instant_markdown_autostart = 0
+
+" Tabman
+"
+let g:tabman_width = 25
+let g:tabman_side = 'left'
+let g:tabman_specials = 0
+let g:tabman_number = 0
+
+
+
+" nicer colors
+highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
