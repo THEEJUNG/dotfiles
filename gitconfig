@@ -41,7 +41,7 @@
 [github]
     user = dykang
 [credential]
-	helper = cache
+	helper = store
 [web]
 	browser = google-chrome
 

@@ -41,4 +41,12 @@ zmq
 lmfit
 nltk
 ipdb
+unidecode
 setGPU
+dbgp
+pep8
+flake8
+pyflakes
+isort
+
+

@@ -1,4 +1,4 @@
-" set nocompatible              " be iMproved, required
+" u set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
@@ -375,6 +375,7 @@ set magic
 "
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
+set expandtab
 autocmd FileType python setlocal tabstop=2 shiftwidth=2 expandtab
 setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
