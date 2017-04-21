@@ -85,10 +85,10 @@ Plugin 'fisadev/FixedTaskList.vim'
 
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
 
 " Python and other languages code checker
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 
 " BEAUTIFUL POWERLINE
@@ -106,12 +106,36 @@ Plugin 'fisadev/vim-isort'
 " Markdown support
 Bundle 'tpope/vim-markdown'
 
+" Yank history navigation: yy - > p [C-p]
+Plugin 'YankRing.vim'
+
+
+" Code and files fuzzy finder
+Plugin 'kien/ctrlp.vim'
+" Extension to ctrlp, for fuzzy command finder
+Plugin 'fisadev/vim-ctrlp-cmdpalette'
+
+" ============================================================================
+" Install plugins the first time vim runs
+
+if iCanHazVundle == 0
+    echo "Installing Plugins, please ignore key map error messages"
+    echo ""
+    :PluginInstall
+endif
+
+
+
 "{{{Auto Commands
 
 " Automatically cd into the directory that the file is in
 " set autochdir
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+"  autocmd for opening all new tabs at the end. It works with NERDTree too.
+autocmd BufNew * if winnr('$') == 1 | tabmove99 | endif
+
+
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
   au!
@@ -154,7 +178,6 @@ set cursorline
 " search settings
 set ignorecase
 set smartcase " do not ignore case when query is mixed case
-set incsearch
 set showmatch
 set hlsearch " highlight search
 map N Nzz " move search result to mid screen
@@ -175,13 +198,14 @@ set fileencodings=utf8,cp949
 syntax enable
 set laststatus=2 " always show status line
 " set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ %{fugitive#statusline()}\ [%l,%v][%p%%]
-set number " show line number
+" set number " show line number
 set scrolljump=1 " 1 line scrolls
 set scrolloff=3 " start scrolling with 3 lines remaining on screen
 set visualbell
 set cursorline " show cursor line
 set ttyfast "
 set ruler " show cursor location
+set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start " fix backspace
 set mouse=a " use mouse
 set showmode "
@@ -198,9 +222,28 @@ let mapleader = "\\"
 
 set foldmethod=syntax
 set foldlevel=999 " do not fold at first
+set number
 
 
+" better backup, swap and undos storage
+" set directory=~/.vim/dirs/tmp     " directory to place swap files in
+" set backup                        " make backup files
+" set backupdir=~/.vim/dirs/backups " where to put backup files
+" set undofile                      " persistent undos - undo after you
+" re-open the file
+" set undodir=~/.vim/dirs/undos
+" set viminfo+=n~/.vim/dirs/viminfo
 
+" create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
 
 " keyboard maps
 " ===========
@@ -289,9 +332,7 @@ nnoremap <leader>a :Ack
 nnoremap <leader>A :Ack <C-R><C-W><CR>
 
 " Yankring
-" nnoremap <silent> <F3> :YRShow<cr>
-" inoremap <silent> <F3> <ESC>:YRShow<cr>
-" let g:yankring_history_dir='~/.vim'
+let g:yankring_history_dir='~/.vim'
 
 " bufexplorer
 map <leader>o :BufExplorer<CR>
@@ -300,7 +341,7 @@ map <leader>o :BufExplorer<CR>
 " let nerdTreeChDirMode=0
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.out$', '\.swp$']
 " let NERDTreeShowBookmarks=1
-map <F4> :NERDTreeFind<CR>
+" map <F4> :NERDTreeFind<CR>
 " map <f5> :NERDTreeClose<CR>
 " nmap <silent> <F4> :NERDTreeToggle<CR>
 
@@ -322,11 +363,11 @@ map <F4> :NERDTreeFind<CR>
 map <F1> :TaskList<CR>
 map <F2> :set nonumber! number?<CR>
 map <F3> :NERDTreeToggle<CR>
-map <F4> :NERDTreeFind<CR>
+"map <F4> :NERDTreeFind<CR>
+nnoremap <silent> <F4> :YRShow<cr>
+inoremap <silent> <F4> <ESC>:YRShow<cr>
 map <F5> :Tagbar<CR>
 map <F6> :TMToggle<CR>
-
-
 
 
 
@@ -340,7 +381,6 @@ nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
 
-set number
 " nnoremap <F2> :set nonumber! norelativenumber!<CR>
 " inoremap <silent> <F2>=<Esc>:set nonumber! norelativenumber!<F2>
 " silent! map <F2> :set nonumber! norelativenumber!<CR>
@@ -418,6 +458,7 @@ set smarttab
 " set smartindent
 set ttyfast
 set autoread
+set autowrite
 set more
 set cursorline!
 
@@ -445,69 +486,111 @@ set magic
 
 
 
-" Syntastic ------------------------------
-" pretty sweet linting/error checking. Works on save
-" :Bundle 'https://github.com/scrooloose/syntastic.git'
-"Bundle 'syntastic'
-" show list of errors and warnings on the current file
-nmap <leader>e :Errors<CR>
-" turn to next or previous errors, after open errors list
-nmap <leader>n :lnext<CR>
-nmap <leader>p :lprevious<CR>
-" check also when just opened the file
-let g:syntastic_check_on_open = 1
-" syntastic checker for javascript.
-" eslint is the only tool support JSX.
-" If you don't need write JSX, you can use jshint.
-" And eslint is slow, but not a hindrance
-" let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_checkers = ['eslint']
-" don't put icons on the sign column (it hides the vcs status icons of signify)
-let g:syntastic_enable_signs = 0
-" custom icons (enable them if you use a patched font, and enable the previous setting)
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-" let g:pymode_lint_write = 0
-" let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python']
-" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
-" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
-" let g:syntastic_python_checkers=['pylint'] "'flake8']
-" let g:syntastic_python_flake8_args='--ignore=E501,E225'
-" let g:syntastic_python_pylint_post_args="--max-line-length=121"
+" "Syntastic ------------------------------
+"" pretty sweet linting/error checking. Works on save
+"" :Bundle 'https://github.com/scrooloose/syntastic.git'
+""Bundle 'syntastic'
+"" show list of errors and warnings on the current file
+"nmap <leader>e :Errors<CR>
+"" turn to next or previous errors, after open errors list
+"nmap <leader>n :lnext<CR>
+"nmap <leader>p :lprevious<CR>
+"" check also when just opened the file
+"let g:syntastic_check_on_open = 1
+"" syntastic checker for javascript.
+"" eslint is the only tool support JSX.
+"" If you don't need write JSX, you can use jshint.
+"" And eslint is slow, but not a hindrance
+"" let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['eslint']
+"" don't put icons on the sign column (it hides the vcs status icons of signify)
+"let g:syntastic_enable_signs = 0
+"" custom icons (enable them if you use a patched font, and enable the previous setting)
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
+"let g:syntastic_style_error_symbol = '✗'
+"let g:syntastic_style_warning_symbol = '⚠'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"" let g:pymode_lint_write = 0
+"" let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python']
+"" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+"" let g:syntastic_python_pylint_post_args = '--msg-template="{path}:{line}:{column}:{C}: [{symbol} {msg_id}] {msg}"'
+"" let g:syntastic_python_checkers=['pylint'] "'flake8']
+"" let g:syntastic_python_flake8_args='--ignore=E501,E225'
+"" let g:syntastic_python_pylint_post_args="--max-line-length=121"
 
-" Python-mode ------------------------------
-" don't use linter, we use syntastic for that
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_signs = 0
-" don't fold python code on open
-let g:pymode_folding = 0
-" don't load rope by default. Change to 1 to use rope
-let g:pymode_rope = 0
-" open definitions on same window, and custom mappings for definitions and occurrences
-let g:pymode_rope_goto_definition_bind = ',d'
-let g:pymode_rope_goto_definition_cmd = 'e'
-nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
-nmap ,o :RopeFindOccurrences<CR>
+" Python-"mode ------------------------------
+"" don't use linter, we use syntastic for that
+"let g:pymode_lint_on_write = 0
+"let g:pymode_lint_signs = 0
+"" don't fold python code on open
+"let g:pymode_folding = 0
+"" don't load rope by default. Change to 1 to use rope
+"let g:pymode_rope = 0
+"" open definitions on same window, and custom mappings for definitions and occurrences
+"let g:pymode_rope_goto_definition_bind = ',d'
+"let g:pymode_rope_goto_definition_cmd = 'e'
+"nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
+"nmap ,o :RopeFindOccurrences<CR>
+
+" CtrlP ------------------------------
+
+" file finder mapping
+let g:ctrlp_map = ',e'
+" hidden some types files
+let g:ctrlp_show_hidden = 1
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.png,*.jpg,*.gif           "Linux
+" tags (symbols) in current file finder mapping
+nmap ,g :CtrlPBufTag<CR>
+" tags (symbols) in all files finder mapping
+nmap ,G :CtrlPBufTagAll<CR>
+" general code finder in all files mapping
+nmap ,f :CtrlPLine<CR>
+" recent files finder mapping
+nmap ,m :CtrlPMRUFiles<CR>
+" commands finder mapping
+nmap ,c :CtrlPCmdPalette<CR>
+" to be able to call CtrlP with default search text
+function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+    execute ':CtrlP' . a:ctrlp_command_end
+    call feedkeys(a:search_text)
+endfunction
+" same as previous mappings, but calling with current word as default text
+nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+" don't change working directory
+let g:ctrlp_working_path_mode = 0
+" ignore these files and folders on file finder
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
+  \ 'file': '\.pyc$\|\.pyo$',
+  \ }
 
 
+" iSort ------------------------------
+"let g:vim_isort_map = '<C-i>'
+let g:vim_isort_python_version = 'python2'
 
-" SuperTAb: Why does <tab> navigate the completion menu from bottom to top?
+
+" SuperTAB: Why does <tab> navigate the completion menu from bottom to top?
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Calendar for Google Calendar porting
 " let g:calendar_google_calendar = 1
 " let g:calendar_google_task = 1
 
-" Tab moving
+" Tab moving: overlap TODO because we don't use VIM splits
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
@@ -516,6 +599,11 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
+nnoremap <C-w>l  :tabnext<CR>
+nnoremap <C-w>h  :tabprev<CR>
+
+
+
 " Alternatively use
 "nnoremap th :tabnext<CR>
 "nnoremap tl :tabprev<CR>
@@ -556,3 +644,7 @@ highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
+
+
+
