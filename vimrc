@@ -101,7 +101,7 @@ Bundle 'airblade/vim-gitgutter'
 " Bundle 'kchmck/vim-coffee-script'
 
 " Automatically sort python imports
-Plugin 'fisadev/vim-isort'
+" Plugin 'fisadev/vim-isort'
 
 " Markdown support
 Bundle 'tpope/vim-markdown'
