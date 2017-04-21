@@ -376,6 +376,7 @@ set magic
 "let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
 autocmd FileType python setlocal tabstop=2 shiftwidth=2 expandtab
+setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
