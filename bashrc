@@ -54,7 +54,9 @@ alias mv='mv -v -i'
 alias cls='clear'
 alias c='clear; ls;'
 alias ff='find . -name $*'
-alias vi='/usr/bin/vim'
+#alias vim='/etc/vim/vimrc.tiny'
+#alias vi='/usr/bin/vim.tiny'
+# alias vi='/usr/bin/vim'
 
 #set autolist
 #set autocorrect
@@ -70,13 +72,17 @@ shopt -s histappend
 shopt -s checkwinsize
 
 alias server='python -m SimpleHTTPServer 5000'
-alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=xterm-256color tmux'
+export TERM="xterm-256color"
+alias tmux="tmux -2"
+set t_Co=256
 alias src='source ~/.bashrc'
 alias ls='ls --color=auto'
 alias ll='ls -ltrh --hide="*.pyc"'
 alias la='ll -A'
 alias l='ls -CF'
- 
+
 alias tm='tmux a -t deep'
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
@@ -86,6 +92,10 @@ export SVN_EDITOR=vim
 export GIT_EDITOR=vim
 
 export TMOUT=0
+
+git config --global user.name "Dongyeop Kang"
+git config --global user.email "dykang85@gmail.com"
+git config --global credential.helper store
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
 

@@ -41,8 +41,12 @@ zmq
 lmfit
 nltk
 ipdb
-<<<<<<< HEAD
 unidecode
-=======
 setGPU
->>>>>>> bd23939920f0e065239d84ba1eeca6644fed0d7e
+dbgp
+pep8
+flake8
+pyflakes
+isort
+
+
