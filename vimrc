@@ -207,7 +207,6 @@ imap <C-v> <Esc><C-v>a
 " autocmds
 " ========
 " autocmd FileType c,cpp,js,py set tabstop=2 shiftwidth=2 softtabstop=2
-au Filetype python setl et ts=2 sw=2
 "Set tab size to 2
 set tabstop=2
 set shiftwidth=2
@@ -215,7 +214,7 @@ set softtabstop=2
 " smarttab
 " set expandtab
 " set softtabstop=0 noexpandtab
-
+au Filetype python setl et ts=2 sw=2 softtabstop=2
 
 
 
