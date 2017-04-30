@@ -397,7 +397,7 @@ nnoremap <leader>gp :Gpush<CR>
 
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
-let g:tagbar_ctags_bin = '/home/dongyeok/local/ctags/bin/ctags'
+let g:tagbar_ctags_bin = '/home/dongyeok/local/ctags-5.8/ctags'
 
 function! ToggleMouse()
   if &mouse == 'a'
