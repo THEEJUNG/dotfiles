@@ -8,16 +8,16 @@
 " no vi-compatible
 set nocompatible
 
-" Setting up Vundle - the best vim plugin manager
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    let iCanHazVundle=0
-endif
+" " Setting up Vundle - the best vim plugin manager
+" let iCanHazVundle=1
+" let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+" if !filereadable(vundle_readme)
+"     echo "Installing Vundle..."
+"     echo ""
+"     silent !mkdir -p ~/.vim/bundle
+"     silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"     let iCanHazVundle=0
+" endif
 
 filetype off
 
@@ -118,11 +118,11 @@ Plugin 'fisadev/vim-ctrlp-cmdpalette'
 " ============================================================================
 " Install plugins the first time vim runs
 
-if iCanHazVundle == 0
-    echo "Installing Plugins, please ignore key map error messages"
-    echo ""
-    :PluginInstall
-endif
+"if iCanHazVundle == 0
+    "echo "Installing Plugins, please ignore key map error messages"
+    "echo ""
+    ":PluginInstall
+"endif
 
 
 
@@ -396,7 +396,7 @@ nnoremap <leader>gp :Gpush<CR>
 
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
-let g:tagbar_ctags_bin = '/home/dongyeok/local/ctags/bin/ctags'
+let g:tagbar_ctags_bin = '$HOME/local/ctags-5.8/ctags'
 
 function! ToggleMouse()
   if &mouse == 'a'

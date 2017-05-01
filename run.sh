@@ -49,11 +49,11 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #pip install neovim
 
 # install ctags for Tagbar
-wget --directory-prefix=$HOME/local http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
-cd $HOME/local
-tar -zxvf ctags-5.8.tar.gz
-cd ./ctags-5.8
-./configure --prefix=$HOME/local
-make && make install
+#wget --directory-prefix=$HOME/local http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
+#cd $HOME/local
+#tar -zxvf ctags-5.8.tar.gz
+#cd ./ctags-5.8
+#./configure --prefix=$HOME/local
+#make && make install
 
 

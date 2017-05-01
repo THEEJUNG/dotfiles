@@ -54,8 +54,7 @@ alias mv='mv -v -i'
 alias cls='clear'
 alias c='clear; ls;'
 alias ff='find . -name $*'
-#alias vim='/etc/vim/vimrc.tiny'
-#alias vi='/usr/bin/vim.tiny'
+alias vi='/usr/bin/vim'
 # alias vi='/usr/bin/vim'
 
 #set autolist
