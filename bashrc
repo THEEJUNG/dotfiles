@@ -42,10 +42,13 @@ export PATH=$PATH:$HOME/work/dotfiles
 
 export DISPLAY="127.0.0.1:10.0"
 
+
+source aliases
+
 alias nv='nvidia-smi'
 alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'
 
-
+alias data='cd ~/data'
 alias work='cd ~/work'
 
 alias rm='rm -v -i'
@@ -56,6 +59,22 @@ alias c='clear; ls;'
 alias ff='find . -name $*'
 alias vi='/usr/bin/vim'
 # alias vi='/usr/bin/vim'
+alias server='python -m SimpleHTTPServer 5000'
+#alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=xterm-256color tmux'
+export TERM="xterm-256color"
+alias tmux="tmux -2"
+set t_Co=256
+alias src='source ~/.bashrc'
+alias ls='ls --color=auto'
+alias ll='ls -ltrh --hide="*.pyc"'
+alias la='ll -A'
+alias l='ls -CF'
+
+alias tm='tmux a -t deep'
+
+
+
 
 #set autolist
 #set autocorrect
@@ -70,19 +89,7 @@ HISTFILESIZE=2000
 shopt -s histappend
 shopt -s checkwinsize
 
-alias server='python -m SimpleHTTPServer 5000'
-#alias tmux='TERM=screen-256color-bce tmux'
-#alias tmux='TERM=xterm-256color tmux'
-export TERM="xterm-256color"
-alias tmux="tmux -2"
-set t_Co=256
-alias src='source ~/.bashrc'
-alias ls='ls --color=auto'
-alias ll='ls -ltrh --hide="*.pyc"'
-alias la='ll -A'
-alias l='ls -CF'
 
-alias tm='tmux a -t deep'
 
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"

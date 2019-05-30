@@ -22,8 +22,8 @@
 #curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
 # install dot files
-#python install.py
-#source ~/.bashrc
+python install.py
+source ~/.bashrc
 
 # install dependencies
 #pip install -r requirements.txt
