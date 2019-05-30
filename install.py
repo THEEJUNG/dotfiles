@@ -14,23 +14,23 @@ os.system("tmux source-file ~/.tmux.conf")
 #os.system("source ~/.bashrc")
 
 
-import urllib
-urllib.urlretrieve("https://bootstrap.pypa.io/get-pip.py", filename="get-pip.py")
+#import urllib
+#urllib.urlretrieve("https://bootstrap.pypa.io/get-pip.py", filename="get-pip.py")
 
 os.system("mv ~/.tmux.conf ~/.tmux.conf.old")
 jobs = [(j("vim"), "~/.vim"), (j("htoprc"), "~/.htoprc"), (j("theanorc"), "~/.theanorc"), (j("vimrc"), "~/.vimrc"), (j("nvimrc"), "~/.config/nvim/init.vim"), (j("gitconfig"), "~/.gitconfig"), (j("gitignore"), "~/.gitignore"), (j("tmux.conf"), "~/.tmux.conf"), (j("htoprc"), "~/.config/htop/htoprc") ]
 
 for path, target in jobs:
-    print target, path
+    print (target, path)
     target = os.path.expanduser(target)
     if os.path.lexists(target):
-      print target, "already exists"
+      print (target, "already exists")
     else:
       try:
         os.symlink(path, target)
-        print "created", target
+        print ("created", target)
       except Exception as e:
-        print e
+        print (e)
         pass
 
 
