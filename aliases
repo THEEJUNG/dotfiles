@@ -1,3 +1,32 @@
+alias nv='nvidia-smi'
+alias nvs='nvidia-smi -q -g 0 -d UTILIZATION -l'
+
+alias data='cd ~/data'
+alias work='cd ~/work'
+
+alias rm='rm -v -i'
+alias cp='cp -v -i'
+alias mv='mv -v -i'
+alias cls='clear'
+alias c='clear; ls;'
+alias ff='find . -name $*'
+alias vi='/usr/bin/vim'
+# alias vi='/usr/bin/vim'
+alias server='python -m SimpleHTTPServer 5000'
+#alias tmux='TERM=screen-256color-bce tmux'
+#alias tmux='TERM=xterm-256color tmux'
+export TERM="xterm-256color"
+alias tmux="tmux -2"
+set t_Co=256
+alias src='source ~/.bashrc'
+alias ls='ls --color=auto'
+alias ll='ls -ltrh --hide="*.pyc"'
+alias la='ll -A'
+alias l='ls -CF'
+
+alias tm='tmux a -t deep'
+
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -7,10 +36,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias d="cd ~/data"
+alias w="cd ~/work"
 alias g="git"
 alias h="history"
 alias j="jobs"

@@ -26,24 +26,14 @@ python install.py
 source ~/.bashrc
 
 # install dependencies
-#pip install -r requirements.txt
+pip install -r requirements.txt
 
 #Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-## gpustat
-#sudo wget https://git.io/gpustat -O /usr/local/bin/gpustat
-#sudo chmod +x /usr/local/bin/gpustat
-#
 ##install java using conda
 #conda install -c cyclus java-jdk=8.45.14
-#
-## tensorflow
-##https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md
-## For CPU-only version
-##pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
-## For GPU-enabled version (only install this version if you have the CUDA sdk installed)
-##pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
+
 #curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 #      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #pip install neovim
