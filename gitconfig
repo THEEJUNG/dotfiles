@@ -45,4 +45,10 @@
 [web]
 	browser = google-chrome
 
-
+[pack]
+  packSizeLimit = 20g
+	windowMemory = 256m
+[format]
+  pretty = format:%C(yellow)%h %C(green)%cd %C(blue)%an%C(red)%d %C(reset)%s%n
+[http]
+	postbuffer = 524288000
