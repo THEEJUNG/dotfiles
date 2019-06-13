@@ -31,14 +31,20 @@ else
     PS1="${ansi_Brown}\u${ansi_White}@\h${ansi_Light_Green}:\w${ansi_Gray}]\$ "
 fi
 
-PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
+PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\]$(__git_ps1)$ '
 
-export DISPLAY="127.0.0.1:0.0"
+
+# If you work with git, you've probably had that nagging sensation of not knowing what branch you are on. Worry no longer!
+#export PS1='\[\033[01;32m\]\[\033[0m\033[0;32m\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] '
+
+
+
+export DISPLAY= #"127.0.0.1:0.0"
 #export PYTHONPATH=$HOME/anaconda2/bin/
 #export PYTHONPATH=$PYTHONPATH:/home/dongyeok/local/python2.7/bin
 #export PATH=$PYTHONPATH:$PATH
 export PATH=$PATH:$HOME/work/dotfiles
-export DISPLAY="127.0.0.1:10.0"
+export DISPLAY= #"127.0.0.1:10.0"
 export CONFIGURE_OPTS=" --enable-unicode=ucs4"
 export PYTHON_CONFIGURE_OPTS=" --enable-unicode=ucs4"
 
@@ -69,6 +75,10 @@ git config --global user.email "dykang85@gmail.com"
 git config --global credential.helper store
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 
 
 
