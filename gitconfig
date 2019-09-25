@@ -1,6 +1,6 @@
 [user]
-	name = Dongyeop Kang
-	email = dykang85@gmail.com
+	name = Taehee Jung
+	email = taehee.jung.1224@gmail.com
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -39,7 +39,7 @@
 [difftool]
     prompt = false
 [github]
-    user = dykang
+    user = theejung
 [credential]
 	helper = store
 [web]
