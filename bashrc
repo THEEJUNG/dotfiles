@@ -68,8 +68,8 @@ HISTFILESIZE=2000
 # append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s checkwinsize
-git config --global user.name "Dongyeop Kang"
-git config --global user.email "dykang85@gmail.com"
+git config --global user.name "Taehee Jung"
+git config --global user.email "taehee.jung.1224@gmail.com"
 git config --global credential.helper store
 #export LC_ALL=ko_KR.UTF-8
 #export LANG=ko_KR.UTF-8
