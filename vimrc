@@ -109,6 +109,9 @@ Bundle 'tpope/vim-markdown'
 " Yank history navigation: yy - > p [C-p]
 Plugin 'YankRing.vim'
 
+" Color
+Plugin 'junegunn/seoul256.vim'
+
 
 " Code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
